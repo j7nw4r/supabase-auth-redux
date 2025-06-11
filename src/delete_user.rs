@@ -28,9 +28,9 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::AuthClient;
+    /// # use supabase_auth_redux::AuthClient;
     /// # use uuid::Uuid;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let admin_client = AuthClient::builder()
     ///     .api_url("https://your-project.supabase.co")
     ///     .anon_key("your-anon-key")
@@ -100,9 +100,9 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::AuthClient;
+    /// # use supabase_auth_redux::AuthClient;
     /// # use uuid::Uuid;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let admin_client = AuthClient::builder()
     ///     .api_url("https://your-project.supabase.co")
     ///     .anon_key("your-anon-key")

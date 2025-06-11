@@ -1,5 +1,5 @@
 use std::env;
-use supabase_auth_rs::{AuthClient, AuthError, IdType};
+use supabase_auth_redux::{AuthClient, AuthError, IdType};
 use uuid::Uuid;
 
 /// Helper to create an auth client for tests

@@ -1,4 +1,4 @@
-use supabase_auth_rs::{AuthClient, GoTrueErrorResponse};
+use supabase_auth_redux::{AuthClient, GoTrueErrorResponse};
 
 #[test]
 fn test_auth_client_creation() {
@@ -49,15 +49,15 @@ fn test_error_schema_display() {
 
 #[test]
 fn test_id_type_enum() {
-    let email_id = supabase_auth_rs::IdType::Email("test@example.com".to_string());
+    let email_id = supabase_auth_redux::IdType::Email("test@example.com".to_string());
     match email_id {
-        supabase_auth_rs::IdType::Email(email) => assert_eq!(email, "test@example.com"),
+        supabase_auth_redux::IdType::Email(email) => assert_eq!(email, "test@example.com"),
         _ => panic!("Expected Email variant"),
     }
 
-    let phone_id = supabase_auth_rs::IdType::PhoneNumber("+1234567890".to_string());
+    let phone_id = supabase_auth_redux::IdType::PhoneNumber("+1234567890".to_string());
     match phone_id {
-        supabase_auth_rs::IdType::PhoneNumber(phone) => assert_eq!(phone, "+1234567890"),
+        supabase_auth_redux::IdType::PhoneNumber(phone) => assert_eq!(phone, "+1234567890"),
         _ => panic!("Expected PhoneNumber variant"),
     }
 }

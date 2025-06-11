@@ -1,5 +1,5 @@
 use std::env;
-use supabase_auth_rs::{AuthClient, IdType};
+use supabase_auth_redux::{AuthClient, IdType};
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

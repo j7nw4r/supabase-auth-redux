@@ -1,9 +1,9 @@
-# supabase-auth-rs
+# supabase-auth-redux
 
-[![Crates.io](https://img.shields.io/crates/v/supabase-auth-rs.svg)](https://crates.io/crates/supabase-auth-rs)
-[![Documentation](https://docs.rs/supabase-auth-rs/badge.svg)](https://docs.rs/supabase-auth-rs)
-[![License](https://img.shields.io/crates/l/supabase-auth-rs.svg)](https://github.com/tunemenu/supabase-auth-rs#license)
-[![CI](https://github.com/tunemenu/supabase-auth-rs/workflows/CI/badge.svg)](https://github.com/tunemenu/supabase-auth-rs/actions)
+[![Crates.io](https://img.shields.io/crates/v/supabase-auth-redux.svg)](https://crates.io/crates/supabase-auth-redux)
+[![Documentation](https://docs.rs/supabase-auth-redux/badge.svg)](https://docs.rs/supabase-auth-redux)
+[![License](https://img.shields.io/crates/l/supabase-auth-redux.svg)](https://github.com/j7nw4r/supabase_auth_rs#license)
+[![CI](https://github.com/j7nw4r/supabase_auth_rs/workflows/CI/badge.svg)](https://github.com/j7nw4r/supabase_auth_rs/actions)
 
 A Rust client library for the [Supabase Auth](https://supabase.com/docs/guides/auth) API.
 
@@ -23,13 +23,13 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-supabase-auth-rs = "0.1.0"
+supabase-auth-redux = "0.1.0"
 ```
 
 ## Quick Start
 
 ```rust
-use supabase_auth_rs::{AuthClient, AuthError, IdType};
+use supabase_auth_redux::{AuthClient, AuthError, IdType};
 
 #[tokio::main]
 async fn main() -> Result<(), AuthError> {

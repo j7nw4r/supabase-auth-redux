@@ -20,8 +20,8 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::AuthClient;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # use supabase_auth_redux::AuthClient;
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")?;
     ///
     /// // After user signs in and you have their access token

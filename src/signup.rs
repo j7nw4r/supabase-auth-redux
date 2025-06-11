@@ -53,9 +53,9 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::{AuthClient, IdType};
+    /// # use supabase_auth_redux::{AuthClient, IdType};
     /// # use std::collections::HashMap;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")?;
     ///
     /// let mut metadata = HashMap::new();

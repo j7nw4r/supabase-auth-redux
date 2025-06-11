@@ -1,12 +1,12 @@
 [package]
-name = "supabase-auth-rs"
+name = "supabase-auth-redux"
 version = "0.1.0"
 edition = "2021"
 authors = ["TuneMenu Contributors"]
 description = "Rust client library for Supabase Auth API"
-documentation = "https://docs.rs/supabase-auth-rs"
-homepage = "https://github.com/tunemenu/supabase-auth-rs"
-repository = "https://github.com/tunemenu/supabase-auth-rs"
+documentation = "https://docs.rs/supabase-auth-redux"
+homepage = "https://github.com/j7nw4r/supabase_auth_rs"
+repository = "https://github.com/j7nw4r/supabase_auth_rs"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 keywords = ["supabase", "auth", "authentication", "jwt", "api-client"]

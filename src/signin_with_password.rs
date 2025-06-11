@@ -38,8 +38,8 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::{AuthClient, IdType};
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # use supabase_auth_redux::{AuthClient, IdType};
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")?;
     ///
     /// let tokens = client

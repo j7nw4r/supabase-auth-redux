@@ -74,7 +74,7 @@ async fn test_concurrent_signins() {
         let handle = tokio::spawn(async move {
             println!("Concurrent signin attempt {}", i);
             client
-                .signin_with_password(supabase_auth_rs::IdType::Email(email), password)
+                .signin_with_password(supabase_auth_redux::IdType::Email(email), password)
                 .await
         });
 

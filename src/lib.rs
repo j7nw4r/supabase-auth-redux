@@ -9,7 +9,7 @@
 //! ## Example
 //!
 //! ```rust,no_run
-//! use supabase_auth_rs::{AuthClient, AuthError, IdType};
+//! use supabase_auth_redux::{AuthClient, AuthError, IdType};
 //!
 //! # async fn example() -> Result<(), AuthError> {
 //! // Initialize the client
@@ -101,7 +101,7 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// use supabase_auth_rs::AuthClient;
+    /// use supabase_auth_redux::AuthClient;
     ///
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")
     ///     .expect("Failed to create auth client");
@@ -130,7 +130,7 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// use supabase_auth_rs::AuthClient;
+    /// use supabase_auth_redux::AuthClient;
     ///
     /// let client = AuthClient::builder()
     ///     .api_url("https://your-project.supabase.co")

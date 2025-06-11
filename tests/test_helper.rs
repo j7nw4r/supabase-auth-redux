@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 
 use std::sync::Once;
-use supabase_auth_rs::{AuthClient, IdType};
+use supabase_auth_redux::{AuthClient, IdType};
 
 static INIT: Once = Once::new();
 
@@ -81,7 +81,9 @@ impl TestUser {
     }
 
     /// Sign in and get new tokens
-    pub async fn signin(&self) -> anyhow::Result<supabase_auth_rs::models::token::TokenResponse> {
+    pub async fn signin(
+        &self,
+    ) -> anyhow::Result<supabase_auth_redux::models::token::TokenResponse> {
         self.client
             .signin_with_password(IdType::Email(self.email.clone()), self.password.clone())
             .await

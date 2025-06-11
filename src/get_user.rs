@@ -28,8 +28,8 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::AuthClient;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # use supabase_auth_redux::AuthClient;
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")?;
     ///
     /// // After user signs in and you have their access token
@@ -103,9 +103,9 @@ impl AuthClient {
     /// # Example
     ///
     /// ```rust,no_run
-    /// # use supabase_auth_rs::AuthClient;
+    /// # use supabase_auth_redux::AuthClient;
     /// # use uuid::Uuid;
-    /// # async fn example() -> Result<(), supabase_auth_rs::AuthError> {
+    /// # async fn example() -> Result<(), supabase_auth_redux::AuthError> {
     /// let client = AuthClient::new("https://your-project.supabase.co", "your-anon-key")?;
     ///
     /// let user_id = Uuid::parse_str("123e4567-e89b-12d3-a456-426614174000").unwrap();
