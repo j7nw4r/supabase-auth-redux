@@ -1,0 +1,32 @@
+[package]
+name = "supabase-auth-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["TuneMenu Contributors"]
+description = "Rust client library for Supabase Auth API"
+documentation = "https://docs.rs/supabase-auth-rs"
+homepage = "https://github.com/tunemenu/supabase-auth-rs"
+repository = "https://github.com/tunemenu/supabase-auth-rs"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["supabase", "auth", "authentication", "jwt", "api-client"]
+categories = ["authentication", "web-programming", "api-bindings"]
+exclude = [".github/*", "tests/*", "examples/*"]
+
+[dependencies]
+serde = { version = "1.0.217", features = ["derive"] }
+thiserror = "1.0.63"
+postgrest = "1.6.0"
+log = "0.4.26"
+reqwest = { version = "0.12.12", features = ["json"] }
+tracing = "0.1.41"
+uuid = { version = "1.15.1", features = ["serde", "v4"] }
+anyhow = "1.0.86"
+serde_json = "1.0.124"
+time = { version = "0.3.37", features = ["parsing", "serde", "formatting"] }
+kinded = { version = "0.3.0" }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+tracing-subscriber = "0.3"
+reqwest = { version = "0.12", features = ["json"] }
