@@ -218,6 +218,10 @@ impl Display for GoTrueErrorResponse {
             f.write_str(msg)?;
             return Ok(());
         }
+        if let Some(ref desc) = self.error_description {
+            f.write_str(desc)?;
+            return Ok(());
+        }
         Err(std::fmt::Error)
     }
 }

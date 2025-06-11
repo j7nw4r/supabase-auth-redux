@@ -32,6 +32,14 @@ fn create_admin_test_client() -> Option<AuthClient> {
     )
 }
 
+/// Helper to create both regular and admin clients
+fn create_test_clients() -> (AuthClient, AuthClient) {
+    let client = create_test_client();
+    let service_client = create_admin_test_client()
+        .expect("Service role key required for this test. Set SUPABASE_SERVICE_ROLE_KEY env var");
+    (client, service_client)
+}
+
 /// Generate a unique test email
 fn generate_test_email() -> String {
     format!("test-{}@example.com", Uuid::new_v4())
@@ -405,5 +413,90 @@ async fn test_signin_with_empty_password() {
     match result.unwrap_err() {
         AuthError::InvalidParameters => {}
         other => panic!("Expected InvalidParameters error, got: {:?}", other),
+    }
+}
+
+#[tokio::test]
+async fn test_get_user_by_id_with_service_role() {
+    // Skip test if service role key is not available
+    if env::var("SUPABASE_SERVICE_ROLE_KEY").is_err() {
+        println!("Skipping test - SUPABASE_SERVICE_ROLE_KEY not set");
+        return;
+    }
+    
+    let (client, service_client) = create_test_clients();
+    
+    // First create a user
+    let email = format!("{}@example.com", Uuid::new_v4());
+    let password = "password123";
+    
+    let (user, _) = client
+        .signup(IdType::Email(email.clone()), password.to_string(), None)
+        .await
+        .expect("Signup should succeed");
+    
+    // Now get the user by ID using service role
+    let fetched_user = service_client
+        .get_user_by_id(user.id)
+        .await
+        .expect("Should be able to get user with service role");
+    
+    if let Some(fetched_user) = fetched_user {
+        assert_eq!(fetched_user.id, user.id);
+        assert_eq!(fetched_user.email, Some(email));
+    } else {
+        panic!("User should have been found");
+    }
+}
+
+#[tokio::test]
+async fn test_get_user_by_id_without_service_role() {
+    let client = create_test_client();
+    
+    // First create a user
+    let email = format!("{}@example.com", Uuid::new_v4());
+    let password = "password123";
+    
+    let (user, _) = client
+        .signup(IdType::Email(email.clone()), password.to_string(), None)
+        .await
+        .expect("Signup should succeed");
+    
+    // Try to get user by ID without service role
+    let result = client.get_user_by_id(user.id).await;
+    
+    assert!(result.is_err(), "Should not be able to get user by ID without service role");
+    match result.unwrap_err() {
+        AuthError::NotAuthorized => {}
+        other => panic!("Expected NotAuthorized error, got: {:?}", other),
+    }
+}
+
+#[tokio::test]
+async fn test_signup_with_phone_number() {
+    let client = create_test_client();
+    let phone = format!("+1555{:07}", (Uuid::new_v4().as_u128() % 10000000) as u32);
+    let password = "password123";
+
+    let result = client
+        .signup(
+            IdType::PhoneNumber(phone.clone()),
+            password.to_string(),
+            None,
+        )
+        .await;
+
+    // Phone signup might not be enabled, so we just ensure it processes correctly
+    match result {
+        Ok((user, _)) => {
+            assert_eq!(user.phone, Some(phone));
+        }
+        Err(AuthError::InvalidParameters) => {
+            // Phone auth might be disabled or invalid phone format - this is expected
+        }
+        Err(AuthError::NotAuthorized) => {
+            // Phone auth might not be configured - this is also acceptable
+        }
+        Err(e) => panic!("Unexpected error: {:?}", e),
     }
 }
